@@ -12,4 +12,5 @@ public class CheckoutPage extends BasePage {
         // Implementation for proceeding to checkout
         checkoutButton.click();
     }
+
 }
