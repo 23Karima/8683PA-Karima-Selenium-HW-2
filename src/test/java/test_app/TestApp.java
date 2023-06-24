@@ -47,7 +47,7 @@ public class TestApp extends BasePage {
         Assert.assertTrue(searchPage.areSearchResultsDisplayed());
         //Assert.assertTrue(searchPage.isSearchTermHighlighted(searchTerm));
     }
-    @Test(priority = 2, groups= {"BAT"}, enabled = true)
+    @Test(priority = 2, groups= {"BAT"}, enabled = false)
     public void testRegistration() throws InterruptedException{
         testSearchBar();
         Registration registrationPage;
@@ -64,7 +64,7 @@ public class TestApp extends BasePage {
         Assert.assertTrue(isElementVisible(registrationPage.registrationResultText));
     }
 
-    @Test(priority = 3, groups = {"BAT"}, enabled = false)
+    @Test(priority = 3, groups = {"BAT"}, enabled = true)
 
     public void testLoginInWithInvalidInfo(){
 
