@@ -29,7 +29,6 @@ public class ExcelData {
         this.filePath = filePath;
     }
 
-    // region Readers
     public HashMap<String, String> getDataModel(String sheetName) {
         HashMap<String, String> data = new HashMap<>();
 
@@ -65,14 +64,6 @@ public class ExcelData {
         return data;
     }
 
-    /**
-     * Read all rows and columns (String values only) and return the results as a multi-dimensional String Array
-     *
-     * This function does not read the header row, and starts reading from row 2
-     *
-     * @param sheetName Sheet name to read from
-     * @return All populated String cell values
-     */
     public String[][] readStringArrays(String sheetName) {
         String[][] data;
 
@@ -101,15 +92,6 @@ public class ExcelData {
         return data;
     }
 
-
-    /**
-     * Read all rows and columns (integer values only) and return the results as a multi-dimensional integer Array
-     *
-     * This function does not read the header row, and starts reading from row 2
-     *
-     * @param sheetName Sheet name to read from
-     * @return All populated integer cell values
-     */
     public int[][] readIntegerArrays(String sheetName) {
         int[][] data;
         File file = new File(this.filePath);
@@ -139,13 +121,6 @@ public class ExcelData {
         return data;
     }
 
-    /**
-     * Read all cells in the last row (String values only) and return the results as a String Array. This method
-     * is most likely to be used when there is only 1 row in the sheet
-     *
-     * @param sheetName Sheet name to read from
-     * @return All populated String cells in the last row of the sheet
-     */
     public String[] readStringArray(String sheetName) {
         String[] data;
         File file = new File(this.filePath);
@@ -172,14 +147,6 @@ public class ExcelData {
         return data;
     }
 
-
-    /**
-     * Read all cells in the last row (integer values only) and return the results as an integer Array. This method
-     * is most likely to be used when there is only 1 row in the sheet
-     *
-     * @param sheetName Sheet name to read from
-     * @return All populated cells (integer values only) in the last row of the sheet
-     */
     public int[] readIntegerArray(String sheetName) {
         int[] data;
         File file = new File(this.filePath);
@@ -206,13 +173,6 @@ public class ExcelData {
         return data;
     }
 
-    /**
-     * Read all cells in the last row (String values only) and return the results as a List<String>. This method
-     * is most likely to be used when there is only 1 row in the sheet
-     *
-     * @param sheetName Sheet name to read from
-     * @return All populated String cells in the last row of the sheet
-     */
     public List<String> readStringList(String sheetName) {
         List<String> data;
         File file = new File(this.filePath);
@@ -239,14 +199,6 @@ public class ExcelData {
         return data;
     }
 
-    // endregion
-
-    // region Writers
-    /**
-     * Writes a multi-dimensional String array to a desired workbook/sheet
-     *
-     * @param sheetName Sheet name to write to
-     */
     public void writeStringArrays(String[][] data, String sheetName) {
         workbook = new XSSFWorkbook();
         sheet = workbook.createSheet(sheetName);
@@ -270,11 +222,6 @@ public class ExcelData {
         }
     }
 
-    /**
-     * Writes a multi-dimensional integer array to a desired workbook/sheet
-     *
-     * @param sheetName Sheet name to write to
-     */
     public void writeIntegerArrays(int[][] data, String sheetName) {
         workbook = new XSSFWorkbook();
         sheet = workbook.createSheet(sheetName);
@@ -298,9 +245,6 @@ public class ExcelData {
         }
     }
 
-    // endregion
-
-    // region Helper Methods
     private String getCellValue(Cell cell) {
         Object value;
 
@@ -320,6 +264,4 @@ public class ExcelData {
         }
         return value.toString();
     }
-
-    // endregion
 }
