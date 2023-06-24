@@ -3,7 +3,7 @@ import base.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-public class LogInWithInvalidInfo extends BasePage{
+public class LogInWithInvalidPassword extends BasePage{
     @FindBy(xpath = "//div[@class='panel header']//a[contains(.,'Sign In')]")
     public WebElement loginLink;
     @FindBy(xpath = "//input[@id='email']")
@@ -18,7 +18,7 @@ public class LogInWithInvalidInfo extends BasePage{
 
 
 
-    public LogInWithInvalidInfo(){
+    public LogInWithInvalidPassword(){
         PageFactory.initElements(driver,this);
     }
 
